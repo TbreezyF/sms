@@ -1,0 +1,21 @@
+{
+  "name": "mail-server",
+  "version": "1.0.0",
+  "description": "Sproft Mail Server 1.1",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sproft Media LLC",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.296.0",
+    "dotenv": "^6.0.0",
+    "mailparser": "^2.3.2",
+    "node-rsa": "^1.0.1",
+    "nodemailer": "^4.6.8",
+    "sendmail": "^1.4.1",
+    "smtp-server": "^3.4.6",
+    "uuid": "^3.3.2"
+  }
+}
