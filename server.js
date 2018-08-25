@@ -5,7 +5,7 @@ const SMTPServer = require('smtp-server').SMTPServer;
 const simpleParser = require('mailparser').simpleParser;
 const user = require('./models/user.js');
 const mta = require('./transferAgent.js');
-const util = require('util');
+const fs = require('fs');
 
 const SERVER_PORT = process.env.PORT;
 const SERVER_HOST = false;
@@ -15,8 +15,18 @@ const server = new SMTPServer({
     // log to console
     logger: true,
 
+    secure: true,
+
+    key: fs.readFileSync(__dirname + '/ssl-private.pem'),
+
+    cert: fs.readFileSync(__dirname + '/ssl-cert.pem'),
+
+    ca: fs.readFileSync(__dirname + '/ssl-bundle.pem'),
+
+    name: 'Sproft Media Mail Server 1.1',
+    
     // not required but nice-to-have
-    banner: 'Sproft Media mail server 1.1',
+    banner: 'SMS V.1.1 is listening',
 
     // disable STARTTLS to allow authentication in clear text mode
     //disabledCommands: ['STARTTLS'],
